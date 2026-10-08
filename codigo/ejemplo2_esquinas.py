@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 print("Christian Garcia Jimenez Nc = 0068")
 # Cargar imagen
-imagen = cv2.imread("lineas_esquinas_canguro.jpg")
+imagen = cv2.imread("lineas_esquinas_canguro_Nc=0068.jpg")
 
 # Verificar que la imagen exista
 if imagen is None:
@@ -33,7 +33,7 @@ esquinas = cv2.dilate(
 resultado = imagen.copy()
 
 # Umbral para identificar esquinas
-umbral = 0.01 * esquinas.max()
+umbral = 0.05 * esquinas.max()
 
 # Marcar esquinas
 resultado[esquinas > umbral] = [0, 0, 255]
@@ -51,7 +51,7 @@ cv2.imshow(
 
 # Guardar resultado
 cv2.imwrite(
-    "lineas_esquinas_canguro.jpg",
+    "lineas_esquinas_canguro_Nc=0068.jpg",
     resultado
 )
 
@@ -65,7 +65,7 @@ print("Cantidad aproximada de puntos detectados:",
       cantidad_esquinas)
 
 print("Resultado guardado en:")
-print("lineas_esquinas_canguro.jpg")
+print("lineas_esquinas_canguro_Nc=0068.jpg")
 
 # Esperar una tecla
 cv2.waitKey(0)
